@@ -1,0 +1,11 @@
+.firebaseui-idp-icon{
+  height: 30px !important;
+  width: 30px !important;
+}
+.firebaseui-idp-google>.firebaseui-idp-text {
+  color: black !important;
+}
+.firebaseui-idp-text{
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}

@@ -1,0 +1,98 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator pothos {
+  provider = "prisma-pothos-types"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model users {
+  id                 String          @id @default(uuid())
+  createdAt          DateTime        @default(now())
+  email              String          @unique
+  name               String?
+  password           String?
+  resetPasswordToken String?
+  phone_number       String?
+  users_payment      users_payment[]
+  users_address      users_address[]
+  role               Int
+  order_details      order_details[]
+  order_items        order_items[]
+}
+
+model users_payment {
+  id            String   @id @default(uuid())
+  user_id       String
+  user          users    @relation(fields: [user_id], references: [id])
+  createdAt     DateTime @default(now())
+  amount        Float
+  paymentIntent String
+}
+
+model users_address {
+  id          String  @id @default(uuid())
+  user_id     String
+  user        users   @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  address     String?
+  city        String?
+  postal_code String?
+  country     String?
+  province    String?
+}
+
+model product_image {
+  id         Int     @id @default(autoincrement())
+  product_id Int
+  product    product @relation(fields: [product_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  image      String?
+}
+
+model product {
+  id            Int             @id @default(autoincrement())
+  name          String          @unique
+  description   String
+  price         Float
+  stock         Int
+  category      category[]
+  views         Int
+  totalSold     Int
+  product_image product_image[]
+  order_items   order_items[]
+}
+
+model category {
+  id      Int       @id @default(autoincrement())
+  name    String    @unique
+  product product[]
+}
+
+model order_items {
+  id            Int             @id @default(autoincrement())
+  order_details order_details[]
+  product_id    Int
+  product       product         @relation(fields: [product_id], references: [id])
+  user_id       String
+  user          users           @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  quantity      Int
+  isFinished    Boolean         @default(false)
+}
+
+model order_details {
+  id          Int           @id @default(autoincrement())
+  user_id     String
+  user        users         @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  total_price Float
+  created_at  DateTime      @default(now())
+  status      String
+  order_items order_items[]
+}

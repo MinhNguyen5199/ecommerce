@@ -1,0 +1,32 @@
+type product {
+  id: ID
+  name: String
+  description: String
+  price: Float
+  views: Int
+  totalSold: Int
+  category: [category]
+  product_image: [product_image]
+}
+
+type product_image {
+  id: ID
+  product_id: ID
+  image: String
+}
+
+type category {
+  id: ID
+  name: String
+  product: [product]
+}
+
+type Query getAllProducts{
+  products: [product]!
+  productImages: [product_image]!
+  category: [category]!
+}
+
+type Mutation {
+  createProducts(name: String!, description: String!, price: Float!, stock: Int!, )
+}
