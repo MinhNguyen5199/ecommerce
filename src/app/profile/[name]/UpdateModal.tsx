@@ -384,6 +384,8 @@ console.log('Delete result:', deleteResult);
                       <div key={image.id} className="relative w-1/2 p-1">
                         <Image
                           src={image.image}
+                          width={500}
+                          height={500}
                           alt="product_image"
                           className="w-full h-64 object-cover rounded-lg shadow-md"
                         />

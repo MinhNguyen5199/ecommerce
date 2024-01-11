@@ -66,7 +66,6 @@ export default function Header() {
     readRole().then((role) => {
       setRoleUser(role?.value || null);
     });
-    router.push("/");
   }, [router]);
   const { user } = UserAuth();
   const {

@@ -22,7 +22,6 @@ export default function FinishOrder() {
   const { user } = UserAuth(); 
   useEffect(() => {
     if (!user) {
-      router.push('/');
     }
   }, []); 
   const [quantities, setQuantities] = useState<{[key: string]: string | number}>({});

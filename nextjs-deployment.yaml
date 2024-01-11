@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: my-nextjs-app
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: my-nextjs-app
@@ -14,8 +14,4 @@ spec:
     spec:
       containers:
       - name: my-nextjs-app
-        image: mynextjsapp.azurecr.io/my-nextjs-app:v1
-        ports:
-        - containerPort: 3000
-      imagePullSecrets:
-      - name: acr-secret
+        image: hoangminhabc11/mywebsite:new
