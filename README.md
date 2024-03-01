@@ -1,3 +1,30 @@
-As the sole full-stack developer for our cutting-edge e-commerce website, I orchestrate a seamless user experience. My expertise spans CRUD operations, pagination, sorting, filtering, and search functionalities. I ensure robust security through authentication and authorization, while also integrating secure payment solutions with Stripe. 
+# A solo e-commerce website using nextjs and hosting with vercel
 
-Tech used: TypeScript, Next.js, Tailwind, Prisma, PostgreSQL, GraphQL, Apollo, Docker, Kubernetes, Pothos, Cloudinary, and Stripe
+## The purpose of this project is to learn and practice concepts related to:
+> - NextJS
+> - TypeScript
+> - Tailwind
+> - PostgrSQL
+> - GraphQL
+> - Apollo
+> - Docker
+> - Kubernetes
+> - Pothos
+> - Cloudinary
+> - Stripe
+
+## In this Website, I have achieved
+
+  - User-Friendly Interface
+  - Mobile Responsiveness
+  - Secure Payment Gateway
+  - Product Search, Filtering, Sorting and Pagination
+  - High-Quality Product Images and Descriptions
+  - Shopping Cart
+  - Order Status Updates
+  - Analytics and Reporting
+  - Admin dashboard to manage users, products, orders and sales
+
+## Website look
+
+https://github.com/MinhNguyen5199/ecommerce/assets/86221335/0d00598d-8ada-4ca4-93be-07f56b0d7c3f
